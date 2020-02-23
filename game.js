@@ -37,3 +37,9 @@ Game.prototype.update = function() {
         if (entity.update) entity.update()
     })
 }
+
+Game.prototype.draw = function() {
+    this.entities.forEach(entity => {
+        if (entity.draw) entity.draw(this.context)
+    })
+}
