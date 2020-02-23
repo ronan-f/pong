@@ -6,7 +6,7 @@ function Entity() {
     this.height = 0
 
     this.xVelocity = 0
-    thie.yVelocity = 0
+    this.yVelocity = 0
 }
 
 Entity.prototype.update = function() {
