@@ -31,3 +31,9 @@ Game.prototype.start = function() {
         this.draw()
     }, interval)
 }
+
+Game.prototype.update = function() {
+    this.entities.forEach(entity => {
+        if (entity.update) entity.update()
+    })
+}
