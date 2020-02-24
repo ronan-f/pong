@@ -18,9 +18,11 @@ Paddle.prototype.update = function() {
 
     if (game.keyPressed.up) {
         this.yVelocity = -speed
+    } else if (game.keyPressed.down) {
+        this.yVelocity = speed
+    } else {
+        this.yVelocity = 0
     }
 
-    if (game.keyPressed.down) {
-        this.yVelocity = speed
-    }
+    this.y = Math.min(Math.max(this.y, 0), game.height - this.height)
 }
