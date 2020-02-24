@@ -9,3 +9,18 @@ function Paddle(xCoordinate) {
 }
 
 Paddle.prototype = Object.create(Entity.prototype)
+Paddle.prototype.constructor = Paddle
+
+Paddle.prototype.update = function() {
+    Entity.prototype.update.apply(this, arguments)
+
+    const speed = 15
+
+    if (game.keyPressed.up) {
+        this.yVelocity = -speed
+    }
+
+    if (game.keyPressed.down) {
+        this.yVelocity = speed
+    }
+}
