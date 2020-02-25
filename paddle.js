@@ -1,10 +1,9 @@
-function Paddle(xCoordinate) {
+function Paddle() {
     Entity.call(this)
 
     this.width = 20
     this.height = 150
 
-    this.x = xCoordinate
     this.y = game.height / 2 - this.height / 2
 }
 
@@ -13,7 +12,19 @@ Paddle.prototype.constructor = Paddle
 
 Paddle.prototype.update = function() {
     Entity.prototype.update.apply(this, arguments)
+    this.y = Math.min(Math.max(this.y, 0), game.height - this.height)
+}
 
+function Player() {
+    Paddle.call(this)
+
+    this.x = 20
+}
+
+Player.prototype = Object.create(Paddle.prototype)
+Player.prototype.constructor = Player
+
+Player.prototype.update = function() {
     const speed = 15
 
     if (game.keyPressed.up) {
@@ -24,5 +35,5 @@ Paddle.prototype.update = function() {
         this.yVelocity = 0
     }
 
-    this.y = Math.min(Math.max(this.y, 0), game.height - this.height)
+    Paddle.prototype.update.apply(this, arguments)
 }
