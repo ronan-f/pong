@@ -31,4 +31,17 @@ Ball.prototype.update = function() {
     if (this.x > game.width - this.width || this.x < 0) {
         this.reset()
     }
+
+    let hitter
+
+    if (this.intersect(game.bot)) {
+        hitter = true
+    } else if (this.intersect(game.player)) {
+        hitter = true
+    }
+
+    if (hitter) {
+        this.xVelocity *= -1.1
+        this.yVelocity *= -1.1
+    }
 }
