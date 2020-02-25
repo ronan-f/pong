@@ -21,8 +21,8 @@ Entity.prototype.draw = function(context) {
 
 Entity.prototype.intersect = function(other) {
     return (
-        this.y + this.heigth > other.y &&
-        this.y > other.y + other.height &&
+        this.y + this.height > other.y &&
+        this.y < other.y + other.height &&
         this.x + this.width > other.x &&
         this.x < other.x + other.width
     )
