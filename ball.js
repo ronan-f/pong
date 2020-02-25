@@ -28,7 +28,13 @@ Ball.prototype.update = function() {
         this.yVelocity *= -1
     }
 
-    if (this.x > game.width - this.width || this.x < 0) {
+    if (this.x > game.width - this.width) {
+        game.player.score++
+        this.reset()
+    }
+
+    if (this.x < 0) {
+        game.bot.score++
         this.reset()
     }
 

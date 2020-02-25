@@ -3,6 +3,7 @@ function Paddle() {
 
     this.width = 20
     this.height = 150
+    this.score = 0
 
     this.y = game.height / 2 - this.height / 2
 }
