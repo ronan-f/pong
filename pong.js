@@ -8,7 +8,12 @@ Background.prototype.draw = function(context) {
 const canvas = $('canvas')[0]
 game = new Game(canvas)
 
-game.entities = [new Background(), new Ball(), new Player()]
+game.entities = [
+    new Background(),
+    (game.ball = new Ball()),
+    (game.player = new Player()),
+    (game.bot = new Bot()),
+]
 
 game.start()
 canvas.focus()
