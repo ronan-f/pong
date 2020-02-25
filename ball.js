@@ -14,8 +14,11 @@ Ball.prototype.reset = function() {
     this.x = game.width / 2 - this.width
     this.y = game.height / 2 - this.height
 
-    this.xVelocity = 10
-    this.yVelocity = 10
+    const min = 5,
+        max = 10
+
+    this.xVelocity = Math.random() > 0.5 ? -5 : 5
+    this.yVelocity = Math.floor(Math.random() * (max - min + 1) + min)
 }
 
 Ball.prototype.update = function() {
